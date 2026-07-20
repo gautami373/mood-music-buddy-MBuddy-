@@ -1,123 +1,133 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+let currentMood="";
+
+const songs={
+
+energetic:{
+kpop:[
+"BTS - Fire",
+"Stray Kids - God's Menu",
+"BLACKPINK - Shut Down"
+],
+
+marathi:[
+"Zingaat",
+"bring it on",
+"Wajle Ki Bara"
+],
+
+hindi:[
+"chokra jawa re",
+"Kala Chashma",
+"me ladki beautiful kr gai chill"
+]
+},
+
+love:{
+kpop:[
+"BTS - Butterfly",
+"IU - Love Poem",
+"EXO - Universe"
+],
+
+marathi:[
+"Man Udhan Varyache",
+"Yad Lagla",
+"Sairat Zaala Ji"
+],
+
+hindi:[
+"Kesariya",
+"Raataan Lambiyan",
+"Tum Hi Ho"
+]
+},
+
+pink:{
+kpop:[
+"NewJeans - Hype Boy",
+"TWICE - Feel Special",
+"IVE - Love Dive"
+],
+
+marathi:[
+"jara jara",
+"Ybhijun gela wara",
+"olya sanja veli"
+],
+
+hindi:[
+"dhadak",
+"jab se tere naina",
+"Tera Hone Laga Hoon"
+]
+},
+
+red:{
+kpop:[
+"bts- black swan",
+"BTS - stay with me ",
+"NCT 127 - Kick It"
+],
+
+marathi:[
+"jiv rangala",
+"maza hshil na",
+"kadhi tu"
+],
+
+hindi:[
+"deewana deewana",
+"tuzhe bhula diya",
+"jhol"
+]
 }
 
-body{
+};
 
-background:#000;
+function selectMood(mood){
 
-font-family:Poppins,sans-serif;
+currentMood=mood;
 
-color:white;
+const colors={
 
-display:flex;
+energetic:"#d9de43",
 
-justify-content:center;
+love:"#ad84c4",
 
-align-items:center;
+pink:"#FA91A4",
 
-height:100vh;
+red:"#941313"
 
-transition:.5s;
+};
 
-}
+document.body.style.background=colors[mood];
 
-.container{
+document.getElementById("languageBox").innerHTML=`
 
-width:700px;
+<h3>Select Language</h3>
 
-padding:40px;
+<button class="langBtn" onclick="showSongs('kpop')">K-Pop</button>
 
-text-align:center;
+<button class="langBtn" onclick="showSongs('marathi')">Marathi</button>
 
-background:rgba(255,255,255,.05);
+<button class="langBtn" onclick="showSongs('hindi')">Hindi</button>
 
-border-radius:20px;
+`;
 
-backdrop-filter:blur(15px);
-
-}
-
-h1{
-
-font-size:45px;
-
-margin-bottom:15px;
+document.getElementById("songs").innerHTML="";
 
 }
 
-h2{
+function showSongs(language){
 
-font-family:'Great Vibes',cursive;
+let html="<h3 style='margin-top:30px;'>Recommended Songs</h3>";
 
-font-size:42px;
+songs[currentMood][language].forEach(song=>{
 
-color:white;
+html+=`<div class="song">${song}</div>`;
 
-margin-bottom:35px;
+});
 
-}
-
-.mood-buttons{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:20px;
-
-}
-
-button{
-
-padding:18px;
-
-border:none;
-
-border-radius:15px;
-
-font-size:17px;
-
-cursor:pointer;
-
-background:white;
-
-color:black;
-
-transition:.3s;
-
-font-weight:600;
-
-}
-
-button:hover{
-
-transform:translateY(-5px);
-
-}
-
-#languageBox{
-
-margin-top:35px;
-
-}
-
-.langBtn{
-
-margin:10px;
-
-}
-
-.song{
-
-background:rgba(255,255,255,.1);
-
-padding:15px;
-
-margin-top:15px;
-
-border-radius:12px;
+document.getElementById("songs").innerHTML=html;
 
 }
