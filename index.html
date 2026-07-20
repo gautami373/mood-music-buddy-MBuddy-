@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mood Music Generator</title>
 
-  <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBuddy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>Mood-Based Music Generator 🎵</h1>
-    <p>Select your mood</p>
+    <div class="container">
 
-    <div class="buttons">
-      <button onclick="showSongs('happy')">Happy 😊</button>
-      <button onclick="showSongs('sad')">Sad 😔</button>
-      <button onclick="showSongs('relaxed')">Relaxed 🌙</button>
-      <button onclick="showSongs('energetic')">Energetic ⚡</button>
+        <h1>MBuddy</h1>
+
+        <h2>Suggest Mood</h2>
+
+        <div class="mood-buttons">
+
+            <button onclick="selectMood('energetic')">
+                Energetic Loud Party
+            </button>
+
+            <button onclick="selectMood('love')">
+                Fresh Love
+            </button>
+
+            <button onclick="selectMood('pink')">
+                Pink Air
+            </button>
+
+            <button onclick="selectMood('red')">
+                Red Air
+            </button>
+
+        </div>
+
+        <div id="languageBox"></div>
+
+        <div id="songs"></div>
+
     </div>
 
-    <div id="result"></div>
-  </div>
+    <script src="script.js"></script>
 
-  <script src="script.js"></script>
 </body>
+
 </html>
